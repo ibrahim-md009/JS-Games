@@ -1,0 +1,13 @@
+{
+  "ar": {
+    "حيوانات": ["اسد", "بطة", "تمساح", "كلب", "زرافة", "ضفدع", "سلحفاة", "قرد", "حصان"],
+    "برمجة": ["جافاسكريبت", "بايثون", "حاسوب", "موقع", "مطور", "برنامج"],
+    "بلدان": ["مصر", "فلسطين", "سوريا", "يمن", "بحرين", "قطر", "عراق", "كويت"],
+    "افلام": ["الرسالة", "الناصر صلاح الدين", "الممر"]
+  },
+  "en": {
+    "Animals": ["Lion", "Duck", "Crocodile", "Dog", "Giraffe", "Frog", "Turtle", "Monkey", "Horse"],
+    "Programming": ["JavaScript", "Python", "Computer", "Website", "Developer", "Program"],
+    "Countries": ["Egypt", "Palestine", "Syria", "Yemen", "Bahrain", "Qatar", "Iraq", "Kuwait"]
+  }
+}

@@ -1,0 +1,515 @@
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+hr {
+  border: 1px solid #eee;
+}
+
+.game-name {
+  color: white;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-around;
+  color: #fff;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.game-info .lang-btn {
+  background-color: #769111;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+}
+.game-info .lang-btn:hover {
+  transform: scale(1.02);
+}
+.game-info .category {
+  text-align: left;
+}
+.game-info .category span {
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.hangman-draw {
+  flex: 1;
+  background: #f8f8f8;
+  padding: 20px;
+}
+.hangman-draw .the-draw {
+  width: 60px;
+  height: 280px;
+  border-bottom: 4px solid #222;
+  position: relative;
+  margin: auto;
+  display: none;
+}
+.hangman-draw .the-stand {
+  width: 4px;
+  height: 100%;
+  background-color: #222;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+}
+.hangman-draw .the-hang {
+  width: 100px;
+  height: 4px;
+  background-color: #222;
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  display: none;
+}
+.hangman-draw .the-hang::after {
+  content: "";
+  background-color: #222;
+  position: absolute;
+  width: 4px;
+  height: 30px;
+  right: 0;
+}
+.hangman-draw .the-rope {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  border: 4px dashed #222;
+  left: 107px;
+  top: 36px;
+  display: none;
+}
+.hangman-draw .the-man .head {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  border: 4px solid #222;
+  left: 112px;
+  top: 41px;
+  display: none;
+}
+.hangman-draw .the-man .body {
+  position: absolute;
+  background-color: #222;
+  width: 4px;
+  height: 80px;
+  left: 126px;
+  top: 67px;
+  display: none;
+}
+.hangman-draw .the-man .hands {
+  display: none;
+}
+.hangman-draw .the-man .hands::before {
+  content: "";
+  width: 30px;
+  position: absolute;
+  height: 4px;
+  background-color: #222;
+  left: 127px;
+  top: 90px;
+  transform: rotate(-30deg);
+}
+.hangman-draw .the-man .hands::after {
+  content: "";
+  width: 30px;
+  position: absolute;
+  height: 4px;
+  background-color: #222;
+  left: 100px;
+  top: 90px;
+  transform: rotate(30deg);
+}
+.hangman-draw .the-man .legs {
+  display: none;
+}
+.hangman-draw .the-man .legs::before {
+  content: "";
+  width: 30px;
+  position: absolute;
+  height: 4px;
+  background-color: #222;
+  left: 125px;
+  top: 152px;
+  transform: rotate(40deg);
+}
+.hangman-draw .the-man .legs::after {
+  content: "";
+  width: 30px;
+  position: absolute;
+  height: 4px;
+  background-color: #222;
+  left: 101px;
+  top: 152px;
+  transform: rotate(-40deg);
+}
+
+.hangman-draw.wrong-1 .the-draw {
+  display: block;
+}
+.hangman-draw.wrong-2 .the-draw .the-stand {
+  display: block;
+}
+.hangman-draw.wrong-3 .the-draw .the-hang {
+  display: block;
+}
+.hangman-draw.wrong-4 .the-draw .the-rope {
+  display: block;
+}
+.hangman-draw.wrong-5 .the-draw .head {
+  display: block;
+}
+.hangman-draw.wrong-6 .the-draw .body {
+  display: block;
+}
+.hangman-draw.wrong-7 .the-draw .hands {
+  display: block;
+}
+.hangman-draw.wrong-8 .the-draw .legs {
+  display: block;
+}
+
+.letters {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 10px;
+  padding-left: 20px;
+  flex: 1;
+  justify-content: center;
+}
+.letters.finished {
+  pointer-events: none;
+}
+.letters .letter-box {
+  height: 50px;
+  line-height: 50px;
+  background: #009688;
+  text-align: center;
+  color: #fff;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.letters-guess {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  background: #f8f8f8;
+  margin: 10px auto;
+  min-height: 104px;
+}
+
+.letters-guess span {
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  font-size: 24px;
+  text-align: center;
+  line-height: 60px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-right: 10px;
+  border-bottom: 3px dashed #222;
+  transition: 0.3s;
+}
+.letters-guess span.with-space {
+  border-bottom: none;
+  background: none;
+}
+
+.clicked {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.loser-pop-up,
+.winner-pop-up {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #1e293b;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 9999;
+  width: 90%;
+  padding: 80px;
+  max-width: 450px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  margin: 0;
+  line-height: 1.6;
+  margin-bottom: 80px;
+}
+
+.status-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  gap: 8px;
+}
+
+.new-game,
+.go-home {
+  width: 120px;
+  height: 60px;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  transition: 0.2s ease;
+  font-size: 18px;
+  color: white;
+}
+
+.new-game {
+  background-color: green;
+}
+
+.new-game:hover {
+  transform: scale(1.03);
+}
+.go-home {
+  right: 180px;
+  background-color: blue;
+}
+.go-home:hover {
+  transform: scale(1.03);
+}
+
+.wrong-letter {
+  background-color: #ff4d4d !important;
+  opacity: 1 !important;
+}
+.correct-letter {
+  background-color: green !important;
+  opacity: 0.5;
+}
+
+.word {
+  background-color: blue;
+  color: white !important;
+  padding: 5px 12px;
+  border-radius: 12px;
+}
+
+.home-btn {
+  background-color: #769111;
+  border: none;
+  padding: 2px 30px;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+}
+.home-txt {
+  transition: 0.3s;
+}
+.home-btn:hover .home-txt {
+  transform: translateY(-5px);
+}
+
+.categories-filter {
+  display: flex;
+  gap: 10px;
+  background-color: #1e293b;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.cat-btn {
+  background-color: transparent;
+  border: none;
+  color: #94a3b8;
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cat-btn:hover {
+  color: #fff;
+  background-color: #334155;
+}
+.cat-btn.active-cat {
+  background-color: #7f5af0;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(127, 90, 240, 0.4);
+}
+.cat-menu {
+  display: none;
+  border: none;
+  background-color: #7f5af0;
+  border-radius: 8px;
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.3s ease;
+}
+.cat-menu:hover {
+  transform: scale(1.03);
+}
+
+.fetch-error {
+  width: 300px;
+  height: 200px;
+  background-color: red;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 1150px) {
+  .container {
+    width: 98%;
+  }
+}
+
+@media (max-width: 980px) {
+  .letters {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px, 0.5fr));
+    gap: 8px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    width: 95%;
+    margin: 10px auto;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .hangman-draw {
+    padding: 10px;
+    order: 2;
+    min-height: 280px;
+  }
+  .hangman-draw .the-draw {
+    height: 220px;
+  }
+
+  .letters {
+    grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
+    gap: 5px;
+    padding: 7px 0;
+    order: 1;
+  }
+
+  .letters .letter-box {
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+  }
+
+  .letters-guess {
+    flex-wrap: wrap;
+    padding: 10px;
+    min-height: auto;
+    gap: 8px;
+  }
+
+  .letters-guess span {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+    margin-right: 0;
+  }
+
+  .loser-pop-up,
+  .winner-pop-up {
+    width: 85vw;
+    height: 40vh;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .cat-menu {
+    display: block;
+  }
+
+  .cat-list {
+    display: none;
+  }
+
+  .categories-filter {
+    position: relative;
+  }
+
+  .categories-filter.open .cat-list {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 130px;
+    background: #1e293b;
+    z-index: 100;
+    border-radius: 8px;
+    padding: 5px;
+  }
+
+  .categories-filter.open .cat-btn {
+    display: block;
+    width: 100%;
+  }
+
+  .game-info .lang-btn,
+  .home-btn {
+    padding: 10px 2px;
+    margin: 0 5px 0 px;
+  }
+}
+
+@media (max-width: 450px) {
+  .game-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .loser-pop-up,
+  .winner-pop-up {
+    font-size: 15px;
+  }
+  .loser-pop-up p,
+  .winner-pop-up p {
+    width: 100%;
+  }
+}

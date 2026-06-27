@@ -1,0 +1,369 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: Tahoma, Arial;
+  direction: rtl;
+  background-color: #16161a;
+  padding-top: 30px;
+  scroll-snap-type: y mandatory;
+}
+
+.home {
+  direction: ltr;
+  width: 100%;
+  margin: auto;
+}
+
+.active {
+  display: block !important;
+}
+.hidden {
+  display: none !important;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #0f172a;
+  z-index: 1000;
+  width: 100%;
+  padding: 20px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.logo {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+}
+.logo-span {
+  color: gold;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+header ul li a {
+  padding: 4px;
+  color: #fff;
+  font-family: "Orbitron", sans-serif;
+  font-weight: 500;
+  transition: 0.3s;
+  font-size: 18px;
+  position: relative;
+}
+header ul li a::after {
+  content: "";
+  width: 0;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: gold;
+  height: 3px;
+  border-radius: 4px;
+  transition: 0.3s ease-in-out;
+}
+header ul li a:hover::after {
+  width: 100%;
+}
+
+section {
+  width: 90%;
+  margin: auto;
+  border-radius: 15px;
+  position: relative;
+  margin-top: 50px;
+}
+
+.sec-name {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  margin: 0;
+  white-space: nowrap;
+  color: white;
+  -webkit-text-stroke: 1px #7f5af0;
+  transition: 0.3s ease;
+}
+.sec-name:hover {
+  transform: translate(-50%, -50%) scale(1.07);
+}
+
+.hero {
+  background-color: #1e293b;
+  display: flex;
+  border: 2px solid #7f5af0;
+  justify-content: center;
+  min-height: 80vh;
+  margin-top: 80px;
+}
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  align-items: center;
+}
+.hero-content h1 {
+  font-size: 40px;
+  color: #fff;
+}
+.hero-content p {
+  color: gold;
+  font-size: 18px;
+}
+.hero-content .hero-btn {
+  width: 300px;
+  margin-top: 30px;
+  font-size: 25px;
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+  color: black;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.hero-content .hero-btn:hover {
+  box-shadow: 0 0 7px #fff;
+}
+
+#games {
+  background-color: #0f172a;
+  border-radius: 10px;
+  min-height: 55vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  border-color: gold;
+}
+
+.games-menu {
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.game-card {
+  background-size: cover;
+  background-position: center;
+
+  background-color: #1e293b;
+  border: 2px solid #7f5af0;
+
+  cursor: pointer;
+
+  width: 250px;
+  height: 300px;
+
+  border-radius: 15px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+  transition: 0.3s ease;
+  letter-spacing: 1px;
+}
+.game-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease;
+}
+.game-card h3 {
+  color: gold;
+  pointer-events: none;
+  font-size: 30px;
+  font-family: "Orbitron", sans-serif;
+  transform: translateY(-26px);
+  z-index: 2;
+}
+
+.game-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+.game-card:hover::before {
+  background-color: transparent;
+}
+
+#play-hangman-btn {
+  background: url(../images/unnamed.png);
+  background-size: cover;
+  background-position: center;
+}
+
+#play-xo-btn {
+  background: url(../images/istockphoto-1198872799-612x612.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+#about {
+  background-color: #322433;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 40vh;
+}
+
+.about-menu p {
+  font-size: 40px;
+  color: white;
+  margin-left: 30px;
+}
+
+footer {
+  margin-top: 50px;
+  min-height: 10vh;
+  background-color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 50px;
+  color: #fff;
+  border: 2px solid gold;
+  border-radius: 10px;
+}
+footer .social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+footer .social-icons a i {
+  font-size: 25px;
+  color: white;
+  transition: 0.3s ease;
+}
+footer .social-icons a i:hover {
+  color: gold;
+}
+
+.menu-btn {
+  display: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+@media (max-width: 710px) {
+  .hero {
+    min-height: 40vh;
+  }
+  .games-menu {
+    flex-direction: column;
+  }
+  footer {
+    padding: 10px 20px;
+  }
+  .menu-btn {
+    display: block;
+  }
+  .logo {
+    z-index: 1001;
+  }
+  nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    z-index: 1000;
+    padding-top: 90px;
+    flex-direction: column;
+  }
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    border-top: 2px solid red;
+    gap: 0;
+  }
+
+  nav ul li {
+    width: 100%;
+    border-bottom: 2px solid #ccc;
+    transition: 0.3s ease;
+  }
+  nav ul li:hover {
+    background-color: #ccc;
+  }
+  nav ul li a {
+    display: block;
+    width: 100%;
+    padding: 30px 0;
+    color: black;
+  }
+  header ul li a::after {
+    display: none;
+  }
+  nav.show {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    overflow: hidden;
+  }
+  .hero h1 {
+    font-size: 20px;
+  }
+  .hero p {
+    font-size: 10px;
+    margin-top: 10px;
+  }
+  .hero .hero-content .hero-btn {
+    width: 200px;
+    padding: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+  footer {
+    padding: 5px 10px;
+  }
+  footer .social-icons {
+    gap: 5px;
+  }
+}
