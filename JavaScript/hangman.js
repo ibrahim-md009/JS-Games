@@ -17,9 +17,6 @@ let guessSpans;
 let theChosenWord = [];
 let randomPropertyName;
 
-const successSound = new Audio("audio/correct-audio.mp3");
-const failSound = new Audio("audio/wrong-audio.mp3");
-
 function generateLetters() {
   const enLetters = "abcdefghijklmnopqrstuvwxyz";
   const arLetters = "ابتثجحخدذرزسشصضطظعغفقكلمنهويةء";
@@ -159,6 +156,7 @@ function handleLettersMatching(clickedLetter) {
 }
 
 function correct(clickedLetter) {
+  const successSound = new Audio("audio/correct-audio.mp3");
   successSound.currentTime = 0;
   successSound.play();
   clickedLetter.classList.add("correct-letter");
@@ -168,6 +166,7 @@ function wrong(clickedLetter) {
   wrongAttempts++;
   clickedLetter.classList.add("wrong-letter");
   theDraw.classList.add(`wrong-${wrongAttempts}`);
+  const failSound = new Audio("audio/wrong-audio.mp3");
   failSound.currentTime = 0;
   failSound.play();
 }
