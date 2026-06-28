@@ -1,0 +1,212 @@
+.xo-container {
+  width: 80%;
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+.xo-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: white;
+  gap: 5px;
+  width: 100%;
+  max-width: 450px;
+  min-width: 250px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.xo-board .sq {
+  aspect-ratio: 1;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 5rem;
+  font-weight: bold;
+  border-radius: 8px;
+  color: white;
+}
+
+.counters {
+  max-width: 450px;
+  min-width: 250px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  position: absolute;
+  top: 40px;
+}
+
+.not-allowed {
+  pointer-events: none;
+}
+
+.players-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 20px;
+}
+.players-data .players-inputs {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 20px;
+}
+.players-data .players-inputs input {
+  height: 30px;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+}
+.players-data .players-inputs input:focus {
+  outline: 2px solid blue;
+}
+.players-data .players-inputs input::placeholder {
+  font-size: 20px;
+}
+
+.players-data .xo-players-btn {
+  width: 50%;
+  height: 30px;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  border-radius: 8px;
+  border: none;
+}
+
+.xostatus-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 5px;
+}
+.xo-new-game,
+.xo-new-champ {
+  width: 120px;
+  height: 60px;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  transition: 0.2s ease;
+  font-size: 18px;
+  color: white;
+  background: green;
+  transition: 0.3s ease;
+}
+.xo-new-game:hover {
+  transform: scale(1.03);
+}
+.xo-new-champ:hover {
+  transform: scale(1.03);
+}
+
+.win-xo-popup .win-popup-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+.win-xo-popup,
+.draw-xo-popup,
+.champ-xo-popup {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #1e293b;
+  color: #f8fafc;
+  border: 2px solid #334155;
+
+  min-width: 250px;
+  min-height: 250px;
+  max-width: 300px;
+  max-height: 300px;
+
+  border-radius: 16px;
+
+  padding: 25px 20px;
+  gap: 20px;
+
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.3),
+    0 10px 10px -5px rgba(0, 0, 0, 0.2);
+
+  animation: popupScale 0.3s ease-out;
+}
+
+@keyframes popupScale {
+  from {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+.draw-xo-popup .draw-popup-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.role {
+  font-size: 40px;
+  margin: 50px 0 20px 0;
+}
+
+.xo-header {
+  color: green;
+  font-size: 40px;
+}
+
+@media (max-width: 700px) {
+  .players-data {
+    padding: 10px 0;
+  }
+  .players-data .players-inputs,
+  .players-data .xo-players-btn {
+    width: 80%;
+  }
+}
+@media (max-width: 564px) {
+  .win-xo-popup,
+  .draw-xo-popup {
+    min-width: 150px;
+    min-height: 150px;
+    max-width: 200px;
+    max-height: 200px;
+  }
+}
+
+@media (max-width: 430px) {
+  .xo-board .sq {
+    font-size: 3rem;
+  }
+}

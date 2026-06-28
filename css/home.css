@@ -20,10 +20,6 @@ body {
   width: 100%;
   margin: auto;
 }
-
-.active {
-  display: block !important;
-}
 .hidden {
   display: none !important;
 }

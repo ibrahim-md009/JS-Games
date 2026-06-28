@@ -1,15 +1,10 @@
-const home = document.querySelector(".home");
-const toggleMenu = document.querySelector(".toggle-menu");
 const lettersContainer = document.querySelector(".letters");
-const hangmanGame = document.querySelector(".container");
 const loserPopUp = document.querySelector(".loser-pop-up");
 const winnerPopUp = document.querySelector(".winner-pop-up");
 const theDraw = document.querySelector(".hangman-draw");
 const langBtn = document.querySelector(".lang-btn");
 const letterGuessContainer = document.querySelector(".letters-guess");
-const menuBtn = document.querySelector(".menu-btn");
-const nav = document.querySelector("nav");
-const logo = document.querySelector(".logo");
+
 const catMenu = document.querySelector(".cat-menu");
 const categoriesFilter = document.querySelector(".categories-filter");
 const catList = document.querySelector(".cat-list");
@@ -56,10 +51,6 @@ async function getWords() {
 }
 
 document.addEventListener("click", (e) => {
-  if (e.target.id === "play-hangman-btn") {
-    playHangman();
-  }
-
   if (e.target.className === "lang-btn") {
     changeLang();
   }
@@ -75,7 +66,7 @@ document.addEventListener("click", (e) => {
   }
 
   if (e.target.className === "go-home" || e.target.className === "home-btn" || e.target.className === "home-txt") {
-    goHome();
+    goHome(hangmanGame);
   }
 
   if (e.target.className === "letter-box") {
@@ -93,11 +84,6 @@ document.addEventListener("click", (e) => {
       checkWin();
     }
   }
-
-  if (e.target.className === "menu-btn") {
-    menu();
-  }
-
   if (e.target.classList.contains("cat-menu")) {
     categoryMenu();
   }
@@ -229,6 +215,7 @@ function changeLang() {
   });
   catMenu.textContent = isAr ? "اختار القسم ▼" : "Select Category ▼";
   categoriesFilter.classList.remove("open");
+  lettersContainer.style = isAr ? "padding-left:20 px" : "padding-right:20px; padding-left:0";
   resetGame();
   getWords();
 }
@@ -241,38 +228,6 @@ function resetGame() {
   winnerPopUp.style.display = "none";
   loserPopUp.style.display = "none";
 }
-
-function goHome() {
-  hangmanGame.classList.replace("active", "hidden");
-  home.classList.replace("hidden", "active");
-  resetGame();
-}
-
-function playHangman() {
-  home.classList.replace("active", "hidden");
-  hangmanGame.classList.replace("hidden", "active");
-  resetGame();
-  getWords();
-}
-
-function menu() {
-  nav.classList.toggle("show");
-
-  menuBtn.textContent = nav.classList.contains("show") ? "X" : "☰";
-  menuBtn.style.color = nav.classList.contains("show") ? "black" : "white";
-
-  logo.style.color = nav.classList.contains("show") ? "black" : "white";
-}
-document.querySelectorAll(".nav-links").forEach((l) => {
-  l.onclick = function () {
-    if (window.innerWidth <= 710) {
-      nav.classList.remove("show");
-      menuBtn.textContent = "☰";
-      menuBtn.style.color = "white";
-      logo.style.color = "white";
-    }
-  };
-});
 
 function categoryMenu() {
   categoriesFilter.classList.toggle("open");
