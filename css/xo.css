@@ -203,6 +203,10 @@
     max-width: 200px;
     max-height: 200px;
   }
+  .xo-new-game,
+  .go-home {
+    font-size: 15px;
+  }
 }
 
 @media (max-width: 430px) {
